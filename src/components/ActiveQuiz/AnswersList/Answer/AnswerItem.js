@@ -4,7 +4,7 @@ import classes from './AnswerItem.module.css'
 const AnswerItem = (props) => {
   return (
     <li className={classes.AnswerItem}>
-      {props.index + 1}.&nbsp; {props.answer.text}
+      {props.answer.text}
     </li>
   )
 };
