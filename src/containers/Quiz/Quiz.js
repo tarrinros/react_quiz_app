@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import classes from './Quiz.module.css'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
+import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 
 class Quiz extends Component {
   state = {
     answerState: null,
     activeQuestion: 0,
-    isFinished: false,
+    isFinished: true,
     quiz: [
       {
         question: 'Какого цвета небо?',
@@ -92,10 +93,12 @@ class Quiz extends Component {
     return (
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
-          <h1>Ответьте на все вопросы</h1>
+          <h1>Please answer the questions</h1>
           {
             this.state.isFinished
-              ? <h1>Finished</h1>
+              ? <FinishedQuiz>
+
+              </FinishedQuiz>
               : <ActiveQuiz
                 question={this.state.quiz[this.state.activeQuestion].question}
                 answers={this.state.quiz[this.state.activeQuestion].answers}
