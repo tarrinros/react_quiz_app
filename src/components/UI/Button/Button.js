@@ -17,4 +17,4 @@ const Button = props => {
   )
 }
 
-exprot default Button
+export default Button
