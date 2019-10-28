@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import classes from './Drawer.module.css'
+import Backdrop from '../../Backdrop/Backdrop'
 
 const links = [
   1, 2, 3
@@ -9,11 +10,9 @@ class Drawer extends Component {
   renderLinks () {
     return links.map((link, index)=>{
       return (
-        <ul>
-          <li key={index}>
-            <a>Link {link}</a>
-          </li>
-        </ul>
+        <li key={index}>
+          <a>Link {link}</a>
+        </li>
       )
     })
   }
@@ -25,9 +24,14 @@ class Drawer extends Component {
     }
 
     return (
-      <nav className={drawerClasses.join(' ')}>
-        { this.renderLinks() }
-      </nav>
+      <React.Fragment>
+        <nav className={drawerClasses.join(' ')}>
+          <ul>
+            { this.renderLinks() }
+          </ul>
+        </nav>
+        {this.props.isOpen ? <Backdrop /> : null}
+      </React.Fragment>
     )
   }
 }
