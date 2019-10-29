@@ -4,6 +4,7 @@
     <list default="true" id="faee4ab6-5ce2-4433-b6ca-c59d142e77fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Auth/Auth.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/Auth.module.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +86,7 @@
       <workItem from="1572198936347" duration="874000" />
       <workItem from="1572199840842" duration="273000" />
       <workItem from="1572358567374" duration="166000" />
-      <workItem from="1572358734603" duration="2645000" />
+      <workItem from="1572358734603" duration="3647000" />
     </task>
     <servers />
   </component>

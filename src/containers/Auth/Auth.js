@@ -20,7 +20,7 @@ export default class Auth extends Component {
       <div className={classes.Auth}>
         <div>
           <h1>Autherization</h1>
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitHandler} className={classes.AuthForm}>
             <input type="text"/>
             <input type="text"/>
 
