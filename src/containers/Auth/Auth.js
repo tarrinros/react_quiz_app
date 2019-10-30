@@ -46,6 +46,10 @@ export default class Auth extends Component {
     event.preventDefault()
   }
 
+  onChangeHandler = (event, controlName) => {
+    console.log(`${controlName}`, event.target.value)
+  }
+
   renderInputs() {
     return Object.keys(this.state.formControls).map((controlName, index) => {
       const control = this.state.formControls[controlName]
@@ -56,6 +60,12 @@ export default class Auth extends Component {
           type={control.type}
           value={control.value}
           label={control.label} 
+          errorMessage={control.errorMessage}
+          valid={control.valid}
+          touched={control.touched}
+          // '!!' - converts to the boolean type
+          shouldValidate={!!control.validation}
+          onChange={event => this.onChangeHandler(event, controlName)}
         />
       )
     })
