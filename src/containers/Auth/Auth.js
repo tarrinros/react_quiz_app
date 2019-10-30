@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import classes from './Auth.module.css'
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input"
+import is from 'is_js'
 
-function validateEmail(email) {
-  const re = /^[^@]+@[^@]+$/i;
-  return re.test(String(email).toLowerCase());
-}
+// use 'is_js' module instead this function
+// function validateEmail(email) {
+//   const re = /^[^@]+@[^@]+$/i;
+//   return re.test(String(email).toLowerCase());
+// }
 
 export default class Auth extends Component {
 
@@ -63,7 +65,7 @@ export default class Auth extends Component {
     }
 
     if (validation.email) {
-      isValid = validateEmail(value) && isValid
+      isValid = is.email(value) && isValid
     }
 
     
@@ -75,8 +77,6 @@ export default class Auth extends Component {
   }
 
   onChangeHandler = (event, controlName) => {
-    console.log(`${controlName}`, event.target.value)
-
     const formControls = { ...this.state.formControls }
     const control = { ...formControls[controlName] }
 
@@ -116,7 +116,7 @@ export default class Auth extends Component {
     return (
       <div className={classes.Auth}>
         <div>
-          <h1>Autherization</h1>
+          <h1>Authorization</h1>
           <form onSubmit={this.submitHandler} className={classes.AuthForm}>
             
             {this.renderInputs()}
