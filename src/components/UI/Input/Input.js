@@ -15,6 +15,8 @@ const Input = (props) => {
         value={props.value} 
         onChange={props.onChange}
       />
+
+      <span>{props.errorMessage}</span>
     </div>
   )
 }
