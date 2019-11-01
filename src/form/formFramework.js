@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function createControl(config, validation) {
   return {
     ...config,

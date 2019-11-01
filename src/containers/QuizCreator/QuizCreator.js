@@ -3,6 +3,14 @@ import classes from './QuizCreator.module.css'
 import Button from "../../components/UI/Button/Button";
 import {createControl} from "../../form/formFramework"
 
+function createOptionControl(number) {
+  return createControl({
+    label: `Answer ${number}`,
+    errorMessage: 'Field can`t be blank',
+    id: number
+  }, {required: true})
+}
+
 export default class QuizCreator extends Component {
   state = {
     quiz: [],
@@ -11,13 +19,10 @@ export default class QuizCreator extends Component {
         label: 'Enter the question',
         errorMessage: 'Question can`t be blank'
       }, {required: true}),
-      option_1: createControl({
-        label: 'Answer 1',
-        errorMessage: 'Field can`t be blank'
-      }),
-      option_2: '',
-      option_3: '',
-      option_4: ''
+      option_1: createOptionControl(1),
+      option_2: createOptionControl(2),
+      option_3: createOptionControl(3),
+      option_4: createOptionControl(4)
     }
   }
 
