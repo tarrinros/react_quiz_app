@@ -12,30 +12,40 @@ export default class QuizCreator extends Component {
   }
 
   createQuizHandler = () => {
-    
+
   }
 
   render() {
     return (
       <div className={classes.QuizCreator}>
-        <h1>Create the quiz</h1>
+        <div>
+          <h1>Create the quiz</h1>
+        
 
-        <form onSubmit={this.submitHandler}></form>
-        <select></select>
+          <form onSubmit={this.submitHandler}>
+            <input type="text"/>
+            <hr/>
+            <input type="text"/>
+            <input type="text"/>
+            <input type="text"/>
 
-        <Button
-          type="primary"
-          onClick={this.addQuestionHandler}
-        >
-          Add question
-        </Button>
+            <select></select>
 
-        <Button
-          type="success"
-          onClick={this.createQuizHandler}
-        >
-          Create quiz
-        </Button>
+            <Button
+              type="primary"
+              onClick={this.addQuestionHandler}
+            >
+              Add question
+            </Button>
+
+            <Button
+              type="success"
+              onClick={this.createQuizHandler}
+            >
+              Create quiz
+            </Button>
+          </form>
+        </div>
       </div>
     )
   }
