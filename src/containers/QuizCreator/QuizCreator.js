@@ -52,7 +52,7 @@ export default class QuizCreator extends Component {
     return Object.keys(this.state.formControls).map((controlName, index) => {
       const control = this.state.formControls[controlName]
       return (
-        <Auxiliary>
+        <Auxiliary key={controlName + index}>
           <Input
             label={control.label}
             value={control.value}
