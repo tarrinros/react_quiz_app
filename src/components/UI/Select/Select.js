@@ -22,7 +22,7 @@ const Select = (props) => {
             </option>
             )
         }) }
-        </select>
+      </select>
     </div>
   )
 }
