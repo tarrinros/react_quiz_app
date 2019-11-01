@@ -11,19 +11,23 @@ function createOptionControl(number) {
   }, {required: true})
 }
 
+function createFormControls() {
+  return {
+    question: createControl({
+      label: 'Enter the question',
+      errorMessage: 'Question can`t be blank'
+    }, {required: true}),
+    option_1: createOptionControl(1),
+    option_2: createOptionControl(2),
+    option_3: createOptionControl(3),
+    option_4: createOptionControl(4)
+  }
+}
+
 export default class QuizCreator extends Component {
   state = {
     quiz: [],
-    formControls: {
-      question: createControl({
-        label: 'Enter the question',
-        errorMessage: 'Question can`t be blank'
-      }, {required: true}),
-      option_1: createOptionControl(1),
-      option_2: createOptionControl(2),
-      option_3: createOptionControl(3),
-      option_4: createOptionControl(4)
-    }
+    formControls: createFormControls()
   }
 
   submitHandler = (event) => {
