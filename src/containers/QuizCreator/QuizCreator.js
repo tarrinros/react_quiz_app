@@ -3,6 +3,17 @@ import classes from './QuizCreator.module.css'
 import Button from "../../components/UI/Button/Button";
 
 export default class QuizCreator extends Component {
+  state = {
+    quiz: [],
+    formControls: {
+      question: '',
+      option_1: '',
+      option_2: '',
+      option_3: '',
+      option_4: ''
+    }
+  }
+
   submitHandler = (event) => {
     event.preventDefault()
   }
