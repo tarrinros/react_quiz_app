@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import classes from './QuizCreator.module.css'
 import Button from "../../components/UI/Button/Button";
+import {createControl} from "../../form/formFramework"
 
 export default class QuizCreator extends Component {
   state = {
     quiz: [],
     formControls: {
-      question: '',
-      option_1: '',
+      question: createControl({
+        label: 'Enter the question',
+        errorMessage: 'Question can`t be blank'
+      }, {required: true}),
+      option_1: createControl({
+        label: 'Answer 1',
+        errorMessage: 'Field can`t be blank'
+      }),
       option_2: '',
       option_3: '',
       option_4: ''
