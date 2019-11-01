@@ -3,7 +3,7 @@ import classes from './QuizCreator.module.css'
 import Button from "../../components/UI/Button/Button"
 import Input from "../../components/UI/Input/Input"
 import Select from "../../components/UI/Select/Select"
-import {createControl} from "../../form/formFramework"
+import { createControl } from "../../form/formFramework"
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 
 function createOptionControl(number) {
@@ -30,6 +30,7 @@ function createFormControls() {
 export default class QuizCreator extends Component {
   state = {
     quiz: [],
+    rightAswerId: 1,
     formControls: createFormControls()
   }
 
@@ -46,7 +47,12 @@ export default class QuizCreator extends Component {
   }
 
   changeHandler = (controlName, value) => {
+  }
 
+  selectChangeHandler = (event) => {
+    this.setState({
+      rightAswerId: +event.target.value
+    })
   }
 
   renderInputs = () => {
@@ -70,19 +76,26 @@ export default class QuizCreator extends Component {
   }
 
   render() {
+    const select = <Select 
+                      label='Choose right answer'
+                      value={this.state.rightAswerId}
+                      onChange={this.selectChangeHandler}
+                      options={[
+                        {text: 1, value: 1},
+                        {text: 2, value: 2},
+                        {text: 3, value: 3},
+                        {text: 4, value: 4}
+                      ]}
+                    />
     return (
       <div className={classes.QuizCreator}>
         <div>
           <h1>Create the quiz</h1>
-        
 
           <form onSubmit={this.submitHandler}>
-            {this.renderInputs()}
+            { this.renderInputs() }
 
-            <Select 
-              
-            />
-
+            { select }
             <Button
               type="primary"
               onClick={this.addQuestionHandler}
