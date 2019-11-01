@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import classes from './QuizCreator.module.css'
 import Button from "../../components/UI/Button/Button"
-import {createControl} from "../../form/formFramework"
 import Input from "../../components/UI/Input/Input"
+import Select from "../../components/UI/Select/Select"
+import {createControl} from "../../form/formFramework"
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 
 function createOptionControl(number) {
@@ -78,7 +79,9 @@ export default class QuizCreator extends Component {
           <form onSubmit={this.submitHandler}>
             {this.renderInputs()}
 
-            <select></select>
+            <Select 
+              
+            />
 
             <Button
               type="primary"
