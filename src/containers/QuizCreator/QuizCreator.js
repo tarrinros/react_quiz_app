@@ -39,8 +39,8 @@ export default class QuizCreator extends Component {
     event.preventDefault()
   }
 
-  addQuestionHandler = () => {
-
+  addQuestionHandler = (event) => {
+    event.preventDefault()
   }
 
   createQuizHandler = () => {
@@ -115,6 +115,7 @@ export default class QuizCreator extends Component {
             <Button
               type="primary"
               onClick={this.addQuestionHandler}
+              disabled={!this.state.isFormValid}
             >
               Add question
             </Button>
@@ -122,6 +123,7 @@ export default class QuizCreator extends Component {
             <Button
               type="success"
               onClick={this.createQuizHandler}
+              disabled={this.state.quiz.length === 0}
             >
               Create quiz
             </Button>
