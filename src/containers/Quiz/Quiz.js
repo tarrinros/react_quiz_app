@@ -60,7 +60,7 @@ class Quiz extends Component {
 
     if (question.rightAnswerId === answerId) {
       if (!results[question.id]) {
-        results[question.id] ='success'
+        results[question.id] = 'success'
       }
       this.setState({
         answerState: {[answerId]: 'success'},
@@ -108,7 +108,7 @@ class Quiz extends Component {
   componentDidMount() {
     console.log('Quiz ID = ', this.props.match.params.id)
   }
-  
+
 
   render() {
     return (
@@ -117,11 +117,11 @@ class Quiz extends Component {
           <h1>Please answer the questions</h1>
           {
             this.state.isFinished
-              ? <FinishedQuiz 
-                  results={this.state.results}
-                  quiz={this.state.quiz}
-                  onRetry={this.retryHandler}
-                />
+              ? <FinishedQuiz
+                results={this.state.results}
+                quiz={this.state.quiz}
+                onRetry={this.retryHandler}
+              />
               : <ActiveQuiz
                 question={this.state.quiz[this.state.activeQuestion].question}
                 answers={this.state.quiz[this.state.activeQuestion].answers}
