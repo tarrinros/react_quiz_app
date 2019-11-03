@@ -5,6 +5,7 @@ import Input from "../../components/UI/Input/Input"
 import Select from "../../components/UI/Select/Select"
 import { createControl, validate, validateForm } from "../../form/formFramework"
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
+import axios from 'axios'
 
 function createOptionControl(number) {
   return createControl({
@@ -31,75 +32,75 @@ export default class QuizCreator extends Component {
   state = {
     quiz: [],
     isFormValid: false,
-    rightAswerId: 1,
+    rightAnswerId: 1,
     formControls: createFormControls()
-  }
+  };
 
   submitHandler = (event) => {
     event.preventDefault()
-  }
+  };
 
   addQuestionHandler = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     // Creates copy of the Quiz state to avoid its mutation
-    const quiz = this.state.quiz.concat()
-    const index = quiz.length + 1
+    const quiz = this.state.quiz.concat();
+    const index = quiz.length + 1;
 
-    const {question, option1, option2, option3, option4} = this.state.formControls
+    const {question, option1, option2, option3, option4} = this.state.formControls;
 
     const questionItem = {
       question: question.value,
       id: index,
-      rightAswerId: this.state.rightAswerId,
+      rightAnswerId: this.state.rightAnswerId,
       answers: [
         {text: option1.value, id: option1.id},
         {text: option2.value, id: option2.id},
         {text: option3.value, id: option3.id},
         {text: option4.value, id: option4.id}
       ]
-    }
-    quiz.push(questionItem)
+    };
+    quiz.push(questionItem);
 
     this.setState({
       quiz,
       isFormValid: false,
-      rightAswerId: 1,
+      rightAnswerId: 1,
       formControls: createFormControls()
     })
-  }
+  };
 
   createQuizHandler = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     console.log(this.state.quiz)
-  }
+  };
 
   changeHandler = (value, controlName) => {
-    const formControls = { ...this.state.formControls }
-    const control = { ...formControls[controlName] }
+    const formControls = { ...this.state.formControls };
+    const control = { ...formControls[controlName] };
 
-    control.touched = true
-    control.value = value
-    control.valid = validate(control.value, control.validation)
+    control.touched = true;
+    control.value = value;
+    control.valid = validate(control.value, control.validation);
 
-    formControls[controlName] = control
+    formControls[controlName] = control;
 
     this.setState({
       formControls,
       isFormValid: validateForm(formControls)
     })
-  }
+  };
 
   selectChangeHandler = (event) => {
     this.setState({
-      rightAswerId: +event.target.value
+      rightAnswerId: +event.target.value
     })
-  }
+  };
 
   renderInputs = () => {
     return Object.keys(this.state.formControls).map((controlName, index) => {
-      const control = this.state.formControls[controlName]
+      const control = this.state.formControls[controlName];
       
       return (
         <Auxiliary key={controlName + index}>
@@ -116,12 +117,12 @@ export default class QuizCreator extends Component {
         </Auxiliary>
       )
     })
-  }
+  };
 
   render() {
     const select = <Select 
                       label="Choose right answer"
-                      value={this.state.rightAswerId}
+                      value={this.state.rightAnswerId}
                       onChange={this.selectChangeHandler}
                       options={[
                         {text: 1, value: 1},
@@ -129,7 +130,7 @@ export default class QuizCreator extends Component {
                         {text: 3, value: 3},
                         {text: 4, value: 4}
                       ]}
-                    />
+                    />;
     return (
       <div className={classes.QuizCreator}>
         <div>
