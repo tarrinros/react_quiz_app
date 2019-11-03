@@ -73,7 +73,11 @@ export default class QuizCreator extends Component {
   createQuizHandler = (event) => {
     event.preventDefault();
 
-    console.log(this.state.quiz)
+    axios.post('https://quizzy-4be1b.firebaseio.com/quizes.json', this.state.quiz)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(error => console.log(error));
   };
 
   changeHandler = (value, controlName) => {
