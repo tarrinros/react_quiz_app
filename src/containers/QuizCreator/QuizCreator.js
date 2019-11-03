@@ -70,14 +70,20 @@ export default class QuizCreator extends Component {
     })
   };
 
-  createQuizHandler = (event) => {
+  createQuizHandler = async event => {
     event.preventDefault();
+    try {
+      const response = await axios.post('https://quizzy-4be1b.firebaseio.com/quizes.json', this.state.quiz)
+      console.log(response.data)
+    } catch (e) {
+      console.log(e)
+    }
 
-    axios.post('https://quizzy-4be1b.firebaseio.com/quizes.json', this.state.quiz)
-      .then((response) => {
-        console.log(response)
-      })
-      .catch(error => console.log(error));
+    // axios.post('https://quizzy-4be1b.firebaseio.com/quizes.json', this.state.quiz)
+    //   .then((response) => {
+    //     console.log(response)
+    //   })
+    //   .catch(error => console.log(error));
   };
 
   changeHandler = (value, controlName) => {
