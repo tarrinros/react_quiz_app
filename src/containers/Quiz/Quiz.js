@@ -2,61 +2,29 @@ import React, {Component} from 'react';
 import classes from './Quiz.module.css'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
+import axios from '../../axios/axios-quiz'
 
 class Quiz extends Component {
   state = {
+    quiz: [],
     results: {}, // {[id]: 'success' 'error'}
     answerState: null, // {[id]: 'success' 'error'}
     activeQuestion: 0,
     isFinished: false,
-    quiz: [
-      {
-        question: 'Какого цвета небо?',
-        rightAnswerId: 1,
-        id: 1,
-        answers: [
-          {text: 'Голубое', id: 1},
-          {text: 'Зеленое', id: 2},
-          {text: 'Желтое', id: 3},
-          {text: 'Розовое', id: 4}
-        ]
-      },
-      {
-        question: 'Что ты ел на обед? Брю..',
-        rightAnswerId: 3,
-        id: 2,
-        answers: [
-          {text: 'Ки', id: 1},
-          {text: 'Хо', id: 2},
-          {text: 'Кву', id: 3},
-          {text: 'Лок', id: 4}
-        ]
-      },
-      {
-        question: 'Почему люди не летают, как птицы?',
-        rightAnswerId: 1,
-        id: 3,
-        answers: [
-          {text: 'Летают лучше', id: 1},
-          {text: 'Потому что не могут', id: 2},
-          {text: 'Страшно', id: 3},
-          {text: 'Не знаю', id: 4}
-        ]
-      }
-    ]
+    loading: true
   };
 
   onAnswerClickHandler = (answerId) => {
     // Fix to avoid double clicking handling
     if (this.state.answerState) {
-      const key = Object.keys(this.state.answerState)[0]
+      const key = Object.keys(this.state.answerState)[0];
       if (this.state.answerState[key] === 'success') {
         return
       }
     }
 
-    const question = this.state.quiz[this.state.activeQuestion]
-    const results = this.state.results
+    const question = this.state.quiz[this.state.activeQuestion];
+    const results = this.state.results;
 
     if (question.rightAnswerId === answerId) {
       if (!results[question.id]) {
@@ -106,7 +74,17 @@ class Quiz extends Component {
   };
 
   async componentDidMount() {
-    console.log('Quiz ID = ', this.props.match.params.id)
+    try {
+      const response = await axios.get(`/quizes/${this.props.match.params.id}.json`)
+      const quiz = response.data
+
+      this.setState({
+        quiz,
+        loading: false
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
