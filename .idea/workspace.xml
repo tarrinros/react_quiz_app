@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UI/Loader/Loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Loader/Loader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UI/Loader/Loader.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Loader/Loader.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizList/QuizList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizList/QuizList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,7 @@
       <workItem from="1572718329832" duration="1764000" />
       <workItem from="1572761841984" duration="7536000" />
       <workItem from="1572859631576" duration="14000" />
-      <workItem from="1572859663501" duration="1127000" />
+      <workItem from="1572859663501" duration="1531000" />
     </task>
     <servers />
   </component>
