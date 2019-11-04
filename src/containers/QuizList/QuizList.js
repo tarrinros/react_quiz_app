@@ -32,7 +32,6 @@ export default class QuizList extends Component {
           id: key,
           name: `Test #${index + 1}`
         });
-        console.log(`Id: ${key}`)
       });
 
       this.setState({

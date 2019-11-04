@@ -103,12 +103,11 @@ class Quiz extends Component {
       isFinished: false,
       results: {}
     })
-  }
+  };
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('Quiz ID = ', this.props.match.params.id)
   }
-
 
   render() {
     return (
