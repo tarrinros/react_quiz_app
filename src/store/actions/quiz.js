@@ -22,7 +22,9 @@ export function fetchQuizes() {
 }
 
 export function fetchQuizesStart() {
-
+  return {
+    type:
+  }
 }
 
 export function fetchQuizesSuccess(quizes) {
