@@ -1,5 +1,8 @@
+import axios from '../../axios/axios-quiz'
+
 export function fetchQuizes() {
   return async (dispatch) => {
+    dispatch(fetchQuizesStart())
     try {
       const response = await axios.get('/quizes.json');
       const quizes = [];
@@ -11,12 +14,13 @@ export function fetchQuizes() {
         });
       });
 
-      this.setState({
-        quizes,
-        loading: false
-      })
+      dispatch(fetchQuizesSuccess())
     } catch (e) {
       console.log(e)
     }
   }
+}
+
+export function fetchQuizesStart() {
+
 }
