@@ -5,7 +5,7 @@ import {
   FETCH_QUIZES_SUCCESS,
   FETCH_QUIZ_SUCCESS,
   QUIZ_SET_STATE,
-  FINISH_QUIZ, QUIZ_NEXT_QUESTION
+  FINISH_QUIZ, QUIZ_NEXT_QUESTION, RETRY_QUIZ
 } from "./actionTypes";
 
 function isQuizFinished(state) {
@@ -133,5 +133,11 @@ export function fetchQuizesError(e) {
   return {
     type: FETCH_QUIZES_ERROR,
     error: e
+  }
+}
+
+export function retryQuiz() {
+  return {
+    type: RETRY_QUIZ,
   }
 }
