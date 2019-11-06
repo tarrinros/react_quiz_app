@@ -3,7 +3,12 @@ import {FETCH_QUIZES_ERROR, FETCH_QUIZES_START, FETCH_QUIZES_SUCCESS} from "../a
 const initialState = {
   quizes: [],
   loading: false,
-  error: null
+  error: null,
+  quiz: null,
+  results: {}, // {[id]: 'success' 'error'}
+  answerState: null, // {[id]: 'success' 'error'}
+  activeQuestion: 0,
+  isFinished: false,
 };
 
 export default function quizReducer(state = initialState, action) {

@@ -6,15 +6,6 @@ import Loader from "../../components/UI/Loader/Loader";
 import axios from '../../axios/axios-quiz'
 
 class Quiz extends Component {
-  state = {
-    quiz: [],
-    results: {}, // {[id]: 'success' 'error'}
-    answerState: null, // {[id]: 'success' 'error'}
-    activeQuestion: 0,
-    isFinished: false,
-    loading: true
-  };
-
   onAnswerClickHandler = (answerId) => {
     // Fix to avoid double clicking handling
     if (this.state.answerState) {
@@ -117,4 +108,20 @@ class Quiz extends Component {
   }
 }
 
-export default Quiz;
+function mapStateToProps(state) {
+  return {
+    results: state.quiz.results,
+    answerState: state.quiz.answerState,
+    activeQuestion: state.quiz.activeQuestion,
+    isFinished: state.quiz.isFinished,
+    loading: state.quiz.loading
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchQuizById: id => dispatch(fetchQuizById())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Quiz);
