@@ -3,7 +3,8 @@ import {
   FETCH_QUIZES_ERROR,
   FETCH_QUIZES_START,
   FETCH_QUIZES_SUCCESS,
-  FETCH_QUIZ_SUCCESS
+  FETCH_QUIZ_SUCCESS,
+  QUIZ_SET_STATE
 } from "./actionTypes";
 
 export function fetchQuizes() {
@@ -60,10 +61,8 @@ export function quizAnswerClick(answerId) {
       if (!results[question.id]) {
         results[question.id] = 'success'
       }
-      // this.setState({
-      //   answerState: {[answerId]: 'success'},
-      //   results
-      // });
+
+      dispatch(quizSetState({[answerId]: 'success'}, results));
 
       // Returns the message if answer is correct and clears timeout to avoid memory leak
       const timeout = window.setTimeout(() => {
@@ -81,12 +80,10 @@ export function quizAnswerClick(answerId) {
         window.clearTimeout(timeout)
       }, 1000)
     } else {
-      results[question.id] = 'error'
+      results[question.id] = 'error';
+
       // Sets state if wrong answer
-      // this.setState({
-      //   answerState: {[answerId]: 'error'},
-      //   results
-      // });
+      dispatch(quizSetState({[answerId]: 'error'}, results));
     }
   }
 }
@@ -114,7 +111,7 @@ export function fetchQuizSuccess(quiz) {
 
 export function quizSetState(answerState, results) {
   return {
-    type: '',
+    type: QUIZ_SET_STATE,
     answerState, results
   }
 }
