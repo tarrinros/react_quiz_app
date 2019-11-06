@@ -3,7 +3,7 @@ import classes from './Quiz.module.css'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 import Loader from "../../components/UI/Loader/Loader";
-import axios from '../../axios/axios-quiz'
+import {connect} from 'react-redux'
 import {fetchQuizById} from "../../store/actions/quiz";
 
 class Quiz extends Component {
@@ -67,6 +67,7 @@ class Quiz extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props)
     this.props.fetchQuizById(this.props.match.params.id)
   }
 
@@ -76,7 +77,7 @@ class Quiz extends Component {
         <div className={classes.QuizWrapper}>
           <h1>Please answer the questions</h1>
           {
-            this.props.loading && this.props.quiz
+            this.props.loading || !this.props.quiz
               ? <Loader/>
               : this.props.isFinished
                 ? <FinishedQuiz
@@ -105,6 +106,7 @@ function mapStateToProps(state) {
     answerState: state.quiz.answerState,
     activeQuestion: state.quiz.activeQuestion,
     isFinished: state.quiz.isFinished,
+    quiz: state.quiz.quiz,
     loading: state.quiz.loading
   }
 }

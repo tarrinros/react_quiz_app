@@ -1,5 +1,10 @@
 import axios from '../../axios/axios-quiz'
-import {FETCH_QUIZES_ERROR, FETCH_QUIZES_START, FETCH_QUIZES_SUCCESS} from "./actionTypes";
+import {
+  FETCH_QUIZES_ERROR,
+  FETCH_QUIZES_START,
+  FETCH_QUIZES_SUCCESS,
+  FETCH_QUIZ_SUCCESS
+} from "./actionTypes";
 
 export function fetchQuizes() {
   return async dispatch => {
