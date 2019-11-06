@@ -4,7 +4,8 @@ import {
   FETCH_QUIZES_START,
   FETCH_QUIZES_SUCCESS,
   FETCH_QUIZ_SUCCESS,
-  QUIZ_SET_STATE
+  QUIZ_SET_STATE,
+  FINISH_QUIZ
 } from "./actionTypes";
 
 export function fetchQuizes() {
@@ -67,9 +68,7 @@ export function quizAnswerClick(answerId) {
       // Returns the message if answer is correct and clears timeout to avoid memory leak
       const timeout = window.setTimeout(() => {
         if (this.isQuizFinished()) {
-          // this.setState({
-          //   isFinished: true
-          // })
+          dispatch(finishQuiz())
         } else {
           // Switches question to the next one
           // this.setState({
@@ -113,6 +112,12 @@ export function quizSetState(answerState, results) {
   return {
     type: QUIZ_SET_STATE,
     answerState, results
+  }
+}
+
+export function finishQuiz() {
+  return {
+    type: FINISH_QUIZ
   }
 }
 
