@@ -41,6 +41,57 @@ export function fetchQuizById(quizId) {
   }
 }
 
+export function quizAnswerClick(answerId) {
+  return (dispatch, getState) => {
+    const state = getState().quiz;
+
+    // Fix to avoid double clicking handling
+    if (state.answerState) {
+      const key = Object.keys(state.answerState)[0];
+      if (state.answerState[key] === 'success') {
+        return
+      }
+    }
+
+    const question = state.quiz[state.activeQuestion];
+    const results = state.results;
+
+    if (question.rightAnswerId === answerId) {
+      if (!results[question.id]) {
+        results[question.id] = 'success'
+      }
+      // this.setState({
+      //   answerState: {[answerId]: 'success'},
+      //   results
+      // });
+
+      // Returns the message if answer is correct and clears timeout to avoid memory leak
+      const timeout = window.setTimeout(() => {
+        if (this.isQuizFinished()) {
+          // this.setState({
+          //   isFinished: true
+          // })
+        } else {
+          // Switches question to the next one
+          // this.setState({
+          //   activeQuestion: this.state.activeQuestion + 1,
+          //   answerState: null
+          // })
+        }
+        window.clearTimeout(timeout)
+      }, 1000)
+    } else {
+      results[question.id] = 'error'
+      // Sets state if wrong answer
+      // this.setState({
+      //   answerState: {[answerId]: 'error'},
+      //   results
+      // });
+    }
+  }
+}
+
+// Action creators
 export function fetchQuizesStart() {
   return {
     type: FETCH_QUIZES_START
@@ -60,6 +111,20 @@ export function fetchQuizSuccess(quiz) {
     quiz
   }
 }
+
+export function quizSetState(answerState, results) {
+  return {
+    type: '',
+    answerState, results
+  }
+}
+
+// export function fetchAnswerSuccess(answer) {
+//   return {
+//     type: FETCH_ANSWER_SUCCESS,
+//     answer
+//   }
+// }
 
 export function fetchQuizesError(e) {
   return {
