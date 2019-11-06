@@ -7,6 +7,10 @@ import {connect} from 'react-redux'
 import {fetchQuizById, quizAnswerClick} from "../../store/actions/quiz";
 
 class Quiz extends Component {
+  isQuizFinished() {
+
+  }
+
   retryHandler = () => {
     this.setState({
       activeQuestion: 0,

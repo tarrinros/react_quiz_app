@@ -8,6 +8,10 @@ import {
   FINISH_QUIZ, QUIZ_NEXT_QUESTION
 } from "./actionTypes";
 
+function isQuizFinished(state) {
+  return state.activeQuestion + 1 === state.quiz.length
+}
+
 export function fetchQuizes() {
   return async dispatch => {
     dispatch(fetchQuizesStart())
@@ -67,7 +71,7 @@ export function quizAnswerClick(answerId) {
 
       // Returns the message if answer is correct and clears timeout to avoid memory leak
       const timeout = window.setTimeout(() => {
-        if (this.isQuizFinished()) {
+        if (isQuizFinished(state)) {
           dispatch(finishQuiz())
         } else {
           // Switches question to the next one
