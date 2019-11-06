@@ -5,7 +5,7 @@ import {
   FETCH_QUIZES_SUCCESS,
   FETCH_QUIZ_SUCCESS,
   QUIZ_SET_STATE,
-  FINISH_QUIZ
+  FINISH_QUIZ, QUIZ_NEXT_QUESTION
 } from "./actionTypes";
 
 export function fetchQuizes() {
@@ -71,10 +71,7 @@ export function quizAnswerClick(answerId) {
           dispatch(finishQuiz())
         } else {
           // Switches question to the next one
-          // this.setState({
-          //   activeQuestion: this.state.activeQuestion + 1,
-          //   answerState: null
-          // })
+          dispatch(quizNexQuestion(state.activeQuestion + 1))
         }
         window.clearTimeout(timeout)
       }, 1000)
@@ -121,12 +118,12 @@ export function finishQuiz() {
   }
 }
 
-// export function fetchAnswerSuccess(answer) {
-//   return {
-//     type: FETCH_ANSWER_SUCCESS,
-//     answer
-//   }
-// }
+export function quizNexQuestion(number) {
+  return {
+    type: QUIZ_NEXT_QUESTION,
+    number
+  }
+}
 
 export function fetchQuizesError(e) {
   return {

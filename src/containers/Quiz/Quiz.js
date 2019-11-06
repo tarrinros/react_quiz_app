@@ -7,14 +7,6 @@ import {connect} from 'react-redux'
 import {fetchQuizById, quizAnswerClick} from "../../store/actions/quiz";
 
 class Quiz extends Component {
-  onAnswerClickHandler = (answerId) => {
-
-  };
-
-  isQuizFinished() {
-    return this.state.activeQuestion + 1 === this.state.quiz.length
-  }
-
   retryHandler = () => {
     this.setState({
       activeQuestion: 0,
@@ -25,7 +17,6 @@ class Quiz extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     this.props.fetchQuizById(this.props.match.params.id)
   }
 
@@ -46,7 +37,7 @@ class Quiz extends Component {
                 : <ActiveQuiz
                   question={this.props.quiz[this.props.activeQuestion].question}
                   answers={this.props.quiz[this.props.activeQuestion].answers}
-                  onAnswerClick={this.onAnswerClickHandler}
+                  onAnswerClick={this.props.quizAnswerClick}
                   quizLength={this.props.quiz.length}
                   answerNumber={this.props.activeQuestion + 1}
                   answerState={this.props.answerState}
