@@ -1,4 +1,5 @@
 import axios from "axios";
+import {AUTH_SUCCESS} from "./actionTypes";
 const USERS_SECRET = process.env.REACT_APP_AUTH_KEY;
 
 export function auth(email, password, isLogin) {
@@ -25,6 +26,7 @@ export function auth(email, password, isLogin) {
     localStorage.setItem('expirationDate', expirationDate)
 
     dispatch(authSuccess(data.idToken))
+
   }
 }
 
