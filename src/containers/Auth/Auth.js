@@ -40,32 +40,32 @@ class Auth extends Component {
     }
   };
 
-  loginHandler = async () => {
-    const authData = {
-      email: this.state.formControls.email.value,
-      password: this.state.formControls.password.value,
-      returnSecureToken: true
+  loginHandler = () => {
+    this.props.auth = {
+      this.state.formControls.email.value,
+      this.state.formControls.password.value,
+      true
     };
-    try {
-      const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${USERS_SECRET}`, authData)
-      console.log(response.data)
-    } catch (e) {
-      console.log(e)
-    }
+    // try {
+    //   const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${USERS_SECRET}`, authData)
+    //   console.log(response.data)
+    // } catch (e) {
+    //   console.log(e)
+    // }
   };
 
-  signUpHandler = async () => {
-    const authData = {
-      email: this.state.formControls.email.value,
-      password: this.state.formControls.password.value,
-      returnSecureToken: true
+  signUpHandler = () => {
+    this.props.auth = {
+      this.state.formControls.email.value,
+      this.state.formControls.password.value,
+      true
     };
-    try {
-      const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${USERS_SECRET}`, authData);
-      console.log(response.data)
-    } catch (e) {
-      console.log(e)
-    }
+    // try {
+    //   const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${USERS_SECRET}`, authData);
+    //   console.log(response.data)
+    // } catch (e) {
+    //   console.log(e)
+    // }
   };
 
   submitHandler = event => {
