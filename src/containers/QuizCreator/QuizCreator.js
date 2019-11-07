@@ -67,18 +67,15 @@ class QuizCreator extends Component {
     })
   };
 
-  createQuizHandler = async event => {
+  createQuizHandler = event => {
     event.preventDefault();
-    try {
-      await axios.post('/quizes.json', this.state.quiz);
+      axios.post('/quizes.json', this.state.quiz);
       this.setState({
         isFormValid: false,
         rightAnswerId: 1,
         formControls: createFormControls()
       });
-    } catch (e) {
-      console.log(e)
-    }
+      this.props.finishCreateQuiz()
   };
 
   changeHandler = (value, controlName) => {
