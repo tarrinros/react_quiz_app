@@ -6,6 +6,7 @@ import Select from "../../components/UI/Select/Select"
 import { createControl, validate, validateForm } from "../../form/formFramework"
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 import axios from '../../axios/axios-quiz'
+import {connect} from "react-redux";
 
 function createOptionControl(number) {
   return createControl({
@@ -28,7 +29,7 @@ function createFormControls() {
   }
 }
 
-export default class QuizCreator extends Component {
+class QuizCreator extends Component {
   state = {
     quiz: [],
     isFormValid: false,
@@ -171,3 +172,17 @@ export default class QuizCreator extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    quiz: state.create.quiz
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizCreator);
