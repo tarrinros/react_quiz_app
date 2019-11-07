@@ -2,17 +2,14 @@ import React, {Component} from 'react'
 import classes from './Auth.module.css'
 import Button from "../../components/UI/Button/Button"
 import Input from "../../components/UI/Input/Input"
-import is from 'is_js'
+import is from 'is_js' // Validation module
 import axios from 'axios'
+import {connect} from "react-redux";
+import {createQuizQuestion, finishCreateQuiz} from "../../store/actions/create";
 
-// use 'is_js' module for email validation instead this function
-// function validateEmail(email) {
-//   const re = /^[^@]+@[^@]+$/i;
-//   return re.test(String(email).toLowerCase());
-// }
-const USERS_SECRET = process.env.REACT_APP_AUTH_KEY
+const USERS_SECRET = process.env.REACT_APP_AUTH_KEY;
 
-export default class Auth extends Component {
+class Auth extends Component {
   state = {
     isFormValid: false,
     formControls: {
@@ -51,7 +48,6 @@ export default class Auth extends Component {
     };
     try {
       const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${USERS_SECRET}`, authData)
-      console.log(USERS_SECRET)
       console.log(response.data)
     } catch (e) {
       console.log(e)
@@ -66,7 +62,6 @@ export default class Auth extends Component {
     };
     try {
       const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${USERS_SECRET}`, authData);
-      console.log(response.data)
       console.log(response.data)
     } catch (e) {
       console.log(e)
@@ -166,3 +161,11 @@ export default class Auth extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Auth);

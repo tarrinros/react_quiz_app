@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="faee4ab6-5ce2-4433-b6ca-c59d142e77fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuizCreator/QuizCreator.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +98,7 @@
       <workItem from="1572941969018" duration="14320000" />
       <workItem from="1573030212464" duration="13631000" />
       <workItem from="1573150953771" duration="12000" />
-      <workItem from="1573150984856" duration="2587000" />
+      <workItem from="1573150984856" duration="4392000" />
     </task>
     <servers />
   </component>

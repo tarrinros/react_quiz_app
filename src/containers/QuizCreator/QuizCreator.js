@@ -7,7 +7,6 @@ import { createControl, validate, validateForm } from "../../form/formFramework"
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 import {connect} from "react-redux";
 import {createQuizQuestion, finishCreateQuiz} from "../../store/actions/create";
-import axios from "../../axios/axios-quiz";
 
 function createOptionControl(number) {
   return createControl({
