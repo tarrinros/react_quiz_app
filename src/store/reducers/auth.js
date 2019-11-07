@@ -1,5 +1,5 @@
 const initialState = {
-  token: bull
+  token: null
 };
 
 export default function authReducer(state = initialState, action) {

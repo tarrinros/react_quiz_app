@@ -3,11 +3,8 @@ import classes from './Auth.module.css'
 import Button from "../../components/UI/Button/Button"
 import Input from "../../components/UI/Input/Input"
 import is from 'is_js' // Validation module
-import axios from 'axios'
 import {connect} from "react-redux";
-import {createQuizQuestion, finishCreateQuiz} from "../../store/actions/create";
-
-const USERS_SECRET = process.env.REACT_APP_AUTH_KEY;
+import {auth} from "../../store/actions/auth";
 
 class Auth extends Component {
   state = {
@@ -46,26 +43,14 @@ class Auth extends Component {
       this.state.formControls.password.value,
       true
     );
-    // try {
-    //   const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${USERS_SECRET}`, authData)
-    //   console.log(response.data)
-    // } catch (e) {
-    //   console.log(e)
-    // }
   };
 
   signUpHandler = () => {
     this.props.auth(
       this.state.formControls.email.value,
       this.state.formControls.password.value,
-      true
+      false
     );
-    // try {
-    //   const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${USERS_SECRET}`, authData);
-    //   console.log(response.data)
-    // } catch (e) {
-    //   console.log(e)
-    // }
   };
 
   submitHandler = event => {
