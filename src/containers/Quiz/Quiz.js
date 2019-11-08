@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import classes from './Quiz.module.css'
-import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
-import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
-import Loader from "../../components/UI/Loader/Loader";
+import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz"
+import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz"
+import Loader from "../../components/UI/Loader/Loader"
 import {connect} from 'react-redux'
-import {fetchQuizById, quizAnswerClick, retryQuiz} from "../../store/actions/quiz";
+import {fetchQuizById, quizAnswerClick, retryQuiz} from "../../store/actions/quiz"
 
 class Quiz extends Component {
   componentDidMount() {
@@ -24,23 +24,23 @@ class Quiz extends Component {
             this.props.loading || !this.props.quiz
               ? <Loader/>
               : this.props.isFinished
-                ? <FinishedQuiz
-                  results={this.props.results}
-                  quiz={this.props.quiz}
-                  onRetry={this.props.retryQuiz}
-                />
-                : <ActiveQuiz
-                  question={this.props.quiz[this.props.activeQuestion].question}
-                  answers={this.props.quiz[this.props.activeQuestion].answers}
-                  onAnswerClick={this.props.quizAnswerClick}
-                  quizLength={this.props.quiz.length}
-                  answerNumber={this.props.activeQuestion + 1}
-                  answerState={this.props.answerState}
-                />
+              ? <FinishedQuiz
+                results={this.props.results}
+                quiz={this.props.quiz}
+                onRetry={this.props.retryQuiz}
+              />
+              : <ActiveQuiz
+                question={this.props.quiz[this.props.activeQuestion].question}
+                answers={this.props.quiz[this.props.activeQuestion].answers}
+                onAnswerClick={this.props.quizAnswerClick}
+                quizLength={this.props.quiz.length}
+                answerNumber={this.props.activeQuestion + 1}
+                answerState={this.props.answerState}
+              />
           }
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -63,4 +63,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Quiz);
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz)

@@ -1,4 +1,4 @@
-export function createControl (config, validation) {
+export function createControl(config, validation) {
   return {
     ...config,
     validation,
@@ -8,7 +8,7 @@ export function createControl (config, validation) {
   }
 }
 
-export function validate (value, validation = null) {
+export function validate(value, validation = null) {
   if (!validation) {
     return true
   }
@@ -18,11 +18,11 @@ export function validate (value, validation = null) {
   if (validation.required) {
     isValid = value.trim() !== '' && isValid
   }
-  
+
   return isValid
 }
 
-export function validateForm (formControls) {
+export function validateForm(formControls) {
   let isFormValid = true
 
   for (let control in formControls) {

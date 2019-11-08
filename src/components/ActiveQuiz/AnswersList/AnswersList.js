@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import classes from './AnswersList.module.css'
-import AnswerItem from "./Answer/AnswerItem";
+import AnswerItem from "./Answer/AnswerItem"
 
 const AnswersList = (props) => {
   return (
@@ -20,4 +20,4 @@ const AnswersList = (props) => {
   );
 }
 
-export default AnswersList;
+export default AnswersList

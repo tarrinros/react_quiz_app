@@ -1,7 +1,7 @@
-import axios from "axios";
-import {AUTH_SUCCESS, AUTH_LOGOUT} from "./actionTypes";
+import axios from "axios"
+import {AUTH_SUCCESS, AUTH_LOGOUT} from "./actionTypes"
 
-const USERS_SECRET = process.env.REACT_APP_AUTH_KEY;
+const USERS_SECRET = process.env.REACT_APP_AUTH_KEY
 
 export function auth(email, password, isLogin) {
   return async dispatch => {
@@ -9,7 +9,7 @@ export function auth(email, password, isLogin) {
       email,
       password,
       returnSecureToken: true
-    };
+    }
 
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${USERS_SECRET}`
 

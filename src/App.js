@@ -7,7 +7,7 @@ import QuizCreator from './containers/QuizCreator/QuizCreator'
 import Auth from './containers/Auth/Auth'
 import Logout from "./components/Logout/Logout"
 import {connect} from "react-redux"
-import {autoLogin} from "./store/actions/auth";
+import {autoLogin} from "./store/actions/auth"
 
 class App extends Component {
   componentDidMount() {

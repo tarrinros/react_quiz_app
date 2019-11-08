@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import classes from './Layout.module.css'
-import MenuToggle from '../../components/UI/Navigation/MenuToggle/MenuToggle';
-import Drawer from '../../components/UI/Navigation/Drawer/Drawer';
-import {connect} from "react-redux";
+import MenuToggle from '../../components/UI/Navigation/MenuToggle/MenuToggle'
+import Drawer from '../../components/UI/Navigation/Drawer/Drawer'
+import {connect} from "react-redux"
 
 class Layout extends Component {
   state = {
@@ -38,7 +38,7 @@ class Layout extends Component {
           {this.props.children}
         </main>
       </div>
-    );
+    )
   }
 }
 
@@ -48,4 +48,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps)(Layout)

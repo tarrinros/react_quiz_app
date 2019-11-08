@@ -8,8 +8,8 @@ class Drawer extends Component {
     this.props.onClose()
   }
 
-  renderLinks (links) {
-    return links.map((link, index)=>{
+  renderLinks(links) {
+    return links.map((link, index) => {
       return (
         <li key={index}>
           <NavLink
@@ -24,7 +24,8 @@ class Drawer extends Component {
       )
     })
   }
-  render () {
+
+  render() {
     const drawerClasses = [classes.Drawer]
 
     if (!this.props.isOpen) {
@@ -48,7 +49,7 @@ class Drawer extends Component {
       <React.Fragment>
         <nav className={drawerClasses.join(' ')}>
           <ul>
-            { this.renderLinks(links) }
+            {this.renderLinks(links)}
           </ul>
         </nav>
         {this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}
@@ -57,4 +58,4 @@ class Drawer extends Component {
   }
 }
 
-export default Drawer;
+export default Drawer

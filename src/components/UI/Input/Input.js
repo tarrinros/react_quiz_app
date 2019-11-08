@@ -17,16 +17,16 @@ const Input = (props) => {
   return (
     <div className={inputClasses.join(' ')}>
       <label htmlFor={htmlFor}>{props.label}</label>
-      <input 
-        type="text" 
-        id={htmlFor} 
-        value={props.value} 
+      <input
+        type="text"
+        id={htmlFor}
+        value={props.value}
         onChange={props.onChange}
       />
       {
         isInvalid(props)
-        ? <span>{props.errorMessage || 'Enter the correct information'}</span>
-        : null
+          ? <span>{props.errorMessage || 'Enter the correct information'}</span>
+          : null
       }
     </div>
   )

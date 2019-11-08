@@ -20,8 +20,8 @@ const Select = (props) => {
             >
               {option.text}
             </option>
-            )
-        }) }
+          )
+        })}
       </select>
     </div>
   )

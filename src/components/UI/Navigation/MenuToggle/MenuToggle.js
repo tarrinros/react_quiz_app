@@ -22,4 +22,4 @@ const MenuToggle = props => {
   )
 }
 
-export default MenuToggle;
+export default MenuToggle
